@@ -1,26 +1,7 @@
-import { TestimonialsCarousel } from "@/components/testimonials-carousel";
+import { GoogleReviewsLive } from "@/components/google-reviews-live";
 
 export default function DepoimentosPage() {
-  const testimonials = [
-    {
-      quote:
-        '"Bom dia madrinha! Nossa que coisa boa que foi ontem, muito obrigado pela experiência e pelo acolhimento."',
-      author: "Buscador",
-      subtitle: "Meditação com Ayahuasca"
-    },
-    {
-      quote:
-        '"Me senti acolhido do começo ao fim. Saí mais leve, com clareza e gratidão pelo cuidado de toda a equipe."',
-      author: "Buscador",
-      subtitle: "Trabalho espiritual"
-    },
-    {
-      quote:
-        '"Um espaço de respeito e disciplina. A condução foi firme e amorosa, e isso trouxe muita segurança durante o processo."',
-      author: "Buscador",
-      subtitle: "Cerimônia"
-    }
-  ];
+  const googleMapsShareUrl = "https://share.google/eDRqLyNUKNQNx885K";
 
   const transformations = [
     {
@@ -192,7 +173,7 @@ export default function DepoimentosPage() {
               </p>
             </div>
 
-            <TestimonialsCarousel items={testimonials} />
+            <GoogleReviewsLive mapsShareUrl={googleMapsShareUrl} />
 
             <div className="text-center mt-8">
               <a
@@ -200,7 +181,7 @@ export default function DepoimentosPage() {
                 rel="noopener noreferrer"
                 data-slot="button"
                 className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 bg-transparent"
-                href="https://www.instagram.com/institutoestrelaazulayaoficial/"
+                href="https://www.google.com/search?sca_esv=ff24eace6b27a26e&rlz=1C1VDKB_pt-PTBR1163BR1163&cs=1&output=search&kgmid=/g/11swmz3xzx&q=Instituto+Estrela+Azul+Ayahuasca&shem=epsdc,shrtsdl&shndl=30&source=sh/x/kp/local/m1/1&kgs=bfad0f2199a3bcdc&utm_source=epsdc,shrtsdl,sh/x/kp/local/m1/1#lrd=0x94dce56c86c769cf:0x6dcf87689666b2f7,1,,,,"
               >
                 Veja mais depoimentos
               </a>

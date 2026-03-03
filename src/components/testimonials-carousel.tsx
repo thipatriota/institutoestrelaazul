@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useState } from "react";
 
-type Testimonial = {
+export type Testimonial = {
   quote: string;
   author: string;
   subtitle?: string;
@@ -141,4 +141,3 @@ export function TestimonialsCarousel({ items }: { items: Testimonial[] }) {
     </div>
   );
 }
-

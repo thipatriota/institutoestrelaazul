@@ -24,3 +24,9 @@ Este repositório foi recriado a partir de um backup estático/minificado, para 
   - Build Command: `next build`
   - Output: padrão do Next.js
 
+## Avaliações do Google na página de depoimentos
+
+- Configure estas variáveis na Vercel (Project Settings → Environment Variables):
+  - `GOOGLE_MAPS_API_KEY`
+  - `GOOGLE_PLACE_ID` (opcional, recomendado)
+  - `GOOGLE_PLACE_QUERY` (opcional)

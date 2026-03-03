@@ -6,6 +6,9 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
+  },
+  turbopack: {
+    root: __dirname
   }
 };
 
