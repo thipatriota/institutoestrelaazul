@@ -26,11 +26,18 @@ const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono"
 });
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://institutoestrelaazul.com.br";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: siteConfig.title,
   description: siteConfig.description,
   keywords: [...siteConfig.keywords],
-  generator: "v0.app"
+  openGraph: {
+    siteName: siteConfig.title,
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -45,6 +52,7 @@ export default function RootLayout({
     >
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/oix1dqk.css" />
+        <link rel="alternate" type="application/rss+xml" title="Blog RSS" href="/feed.xml" />
       </head>
       <body className="font-sans">
         <div className="min-h-screen bg-background">
