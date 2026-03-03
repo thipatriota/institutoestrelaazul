@@ -4,10 +4,8 @@ import { fileURLToPath } from "node:url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const nextConfig = {
-  output: "export",
   trailingSlash: true,
   images: {
-    unoptimized: true,
     formats: ["image/avif", "image/webp"],
   },
   turbopack: {
