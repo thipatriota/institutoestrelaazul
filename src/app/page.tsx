@@ -3,7 +3,7 @@ export default function HomePage() {
     <>
       <section className="relative overflow-hidden bg-[#EAF6F7]">
         <div
-          className="h-40 md:h-44 w-full border-b border-border/60 bg-white"
+          className="h-40 md:h-44 w-full border-b border-[#0745B5] bg-white"
           style={{
             backgroundImage: "url('/hero-pattern.jpg')",
             backgroundRepeat: "repeat",
