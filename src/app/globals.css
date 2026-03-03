@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+:root {
+  --background: 100% 0 0;
+  --foreground: 14.5% 0 0;
+  --card: 100% 0 0;
+  --card-foreground: 14.5% 0 0;
+  --popover: 100% 0 0;
+  --popover-foreground: 14.5% 0 0;
+  --primary: 60% 0.15 220;
+  --primary-foreground: 98.5% 0 0;
+  --secondary: 40% 0.08 120;
+  --secondary-foreground: 98.5% 0 0;
+  --muted: 97% 0 0;
+  --muted-foreground: 55.6% 0 0;
+  --accent: 97% 0 0;
+  --accent-foreground: 20.5% 0 0;
+  --destructive: 57.7% 0.245 27.325;
+  --destructive-foreground: 98.5% 0 0;
+  --border: 92.2% 0 0;
+  --input: 92.2% 0 0;
+  --ring: 60% 0.15 220;
+  --radius: 0.625rem;
+}
+
+body {
+  color: oklch(var(--foreground));
+  background: oklch(var(--background));
+  text-rendering: geometricPrecision;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-glory-serif), athelas, ui-serif, Georgia, serif;
+}
+
+* {
+  border-color: oklch(var(--border));
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+.field-sizing-content {
+  field-sizing: content;
+}
+
+.shadow-xs {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
