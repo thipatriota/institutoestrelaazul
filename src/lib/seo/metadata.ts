@@ -35,9 +35,15 @@ export function buildPostMetadata(post: Post | PostCard): Metadata {
             ? `@${post.author.twitter}`
             : undefined;
 
+    // Build keywords list
+    const keywordsList: string[] = [];
+    if (seo.focusKeyword) keywordsList.push(seo.focusKeyword);
+    if (seo.keywords) keywordsList.push(...seo.keywords);
+
     return {
         title: `${title} | ${SITE_NAME}`,
         description,
+        keywords: keywordsList.length > 0 ? keywordsList : undefined,
         robots,
         alternates: { canonical },
         openGraph: {

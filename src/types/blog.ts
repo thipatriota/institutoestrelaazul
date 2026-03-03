@@ -22,6 +22,8 @@ export interface SanityImage {
 /* ------------------------------------------------------------------ */
 
 export interface SeoFields {
+    focusKeyword?: string;
+    keywords?: string[];
     metaTitle?: string;
     metaDescription?: string;
     ogImage?: SanityImage;
