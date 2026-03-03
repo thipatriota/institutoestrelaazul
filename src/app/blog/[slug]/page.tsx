@@ -10,8 +10,8 @@ import { RelatedPosts } from "@/components/blog/RelatedPosts";
 import { ShareButtons } from "@/components/blog/ShareButtons";
 import {
     TableOfContents,
-    extractTocItems,
 } from "@/components/blog/TableOfContents";
+import { extractTocItems } from "@/lib/toc";
 import {
     getAllPostSlugs,
     getPostBySlug,
