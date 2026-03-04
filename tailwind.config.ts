@@ -7,8 +7,8 @@ export default {
       fontFamily: {
         sans: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
         heading: [
-          "var(--font-glory-serif)",
           "athelas",
+          "var(--font-glory-serif)",
           "ui-serif",
           "Georgia",
           "serif"
