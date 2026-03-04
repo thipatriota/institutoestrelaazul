@@ -42,7 +42,7 @@ const components: PortableTextComponents = {
             return (
                 <h3
                     id={id}
-                    className="mt-10 mb-4 scroll-mt-24 font-heading text-xl font-semibold uppercase tracking-wider text-foreground lg:text-2xl"
+                    className="mt-10 mb-4 scroll-mt-24 font-heading text-xl font-semibold text-foreground lg:text-2xl"
                 >
                     {children}
                 </h3>

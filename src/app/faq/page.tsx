@@ -50,7 +50,7 @@ export default function FaqPage() {
     {
       question: "O que devo levar para a cerimônia?",
       answer:
-        "Itens comuns incluem documento, garrafa de água e roupas confortáveis. A lista exata é enviada no agendamento junto das orientações."
+        "Itens comuns incluem documento e roupas confortáveis. A lista exata é enviada no agendamento junto das orientações."
     },
     {
       question: "A consagração da Ayahuasca é permitida no Brasil?",
