@@ -57,6 +57,18 @@ const components: PortableTextComponents = {
             </blockquote>
         ),
     },
+    list: {
+        bullet: ({ children }) => (
+            <ul className="mb-6 ml-6 list-disc space-y-2 text-foreground/90 md:ml-8">{children}</ul>
+        ),
+        number: ({ children }) => (
+            <ol className="mb-6 ml-6 list-decimal space-y-2 text-foreground/90 md:ml-8">{children}</ol>
+        ),
+    },
+    listItem: {
+        bullet: ({ children }) => <li className="leading-relaxed">{children}</li>,
+        number: ({ children }) => <li className="leading-relaxed">{children}</li>,
+    },
     marks: {
         strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
         em: ({ children }) => <em>{children}</em>,

@@ -29,6 +29,14 @@ const tooltipComponents: PortableTextComponents = {
             );
         },
     },
+    list: {
+        bullet: ({ children }) => <ul className="mb-4 ml-5 list-disc space-y-1 text-foreground/90">{children}</ul>,
+        number: ({ children }) => <ol className="mb-4 ml-5 list-decimal space-y-1 text-foreground/90">{children}</ol>,
+    },
+    listItem: {
+        bullet: ({ children }) => <li className="leading-relaxed">{children}</li>,
+        number: ({ children }) => <li className="leading-relaxed">{children}</li>,
+    },
     block: {
         normal: ({ children }) => <p className="mb-4 last:mb-0 text-base leading-relaxed text-foreground/90">{children}</p>,
     }
@@ -55,7 +63,7 @@ export function ReferenceTooltip({ children, value }: ReferenceTooltipProps) {
                     <span
                         role="button"
                         tabIndex={0}
-                        className="inline-flex items-center justify-center min-w-[1.6em] h-[1.6em] px-[0.3em] mx-[0.1em] rounded-[0.4em] bg-primary/10 text-primary font-bold cursor-help align-super text-[0.7em] hover:bg-primary/20 transition-colors"
+                        className="inline-flex items-center justify-center min-w-[1.6em] h-[1.6em] px-[0.3em] mx-[0.2em] rounded-[0.4em] bg-primary/10 text-primary font-bold cursor-help align-baseline text-[0.8em] tracking-wide hover:bg-primary/20 transition-colors"
                     >
                         {children}
                     </span>

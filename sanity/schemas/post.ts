@@ -108,7 +108,6 @@ export const postSchema = defineType({
                                             {
                                                 type: "block",
                                                 styles: [],
-                                                lists: [],
                                                 marks: {
                                                     decorators: [
                                                         { title: "Negrito", value: "strong" },
