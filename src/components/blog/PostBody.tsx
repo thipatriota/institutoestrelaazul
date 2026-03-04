@@ -28,7 +28,7 @@ const components: PortableTextComponents = {
             return (
                 <h2
                     id={id}
-                    className="mt-12 mb-4 scroll-mt-24 font-heading text-2xl font-bold text-foreground lg:text-3xl"
+                    className="mt-14 mb-5 scroll-mt-24 font-heading text-3xl font-bold text-foreground lg:text-4xl"
                 >
                     {children}
                 </h2>
@@ -42,7 +42,7 @@ const components: PortableTextComponents = {
             return (
                 <h3
                     id={id}
-                    className="mt-8 mb-3 scroll-mt-24 font-heading text-xl font-semibold text-foreground lg:text-2xl"
+                    className="mt-10 mb-4 scroll-mt-24 font-heading text-xl font-semibold uppercase tracking-wider text-foreground lg:text-2xl"
                 >
                     {children}
                 </h3>
