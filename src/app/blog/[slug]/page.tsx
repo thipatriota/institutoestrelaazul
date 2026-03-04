@@ -85,6 +85,12 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <div className="flex flex-col gap-12 lg:flex-row">
                     {/* Article body — 70% */}
                     <main className="min-w-0 lg:w-[70%]">
+                        <div className="mb-10 flex items-center">
+                            <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary shadow-sm">
+                                📚 Artigo Educativo
+                            </span>
+                        </div>
+
                         <PostBody body={post.body} />
 
                         <hr className="my-10 border-border/50" />
