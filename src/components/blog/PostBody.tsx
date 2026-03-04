@@ -92,19 +92,27 @@ const components: PortableTextComponents = {
         image: ({ value }) => {
             const src = imageUrl(value, 1200);
             if (!src) return null;
+
+            // Tenta obter as dimensões originais da imagem se disponíveis no _ref
+            const ref = value?.asset?._ref || "";
+            const match = ref.match(/-(\d+)x(\d+)-/);
+            const width = match ? parseInt(match[1], 10) : 1200;
+            const height = match ? parseInt(match[2], 10) : 800;
+
             return (
-                <figure className="my-8">
-                    <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
+                <figure className="my-10 flex flex-col items-center">
+                    <div className="relative w-full overflow-hidden rounded-xl bg-muted/10 flex justify-center">
                         <Image
                             src={src}
                             alt={value.alt || ""}
-                            fill
+                            width={width}
+                            height={height}
                             sizes="(max-width: 768px) 100vw, 68ch"
-                            className="object-cover"
+                            className="h-auto w-auto max-w-full lg:max-h-[75vh] object-contain rounded-xl"
                         />
                     </div>
                     {value.caption && (
-                        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+                        <figcaption className="mt-3 text-center text-sm italic text-muted-foreground/80">
                             {value.caption}
                         </figcaption>
                     )}

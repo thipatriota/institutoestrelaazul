@@ -95,10 +95,44 @@ export const postSchema = defineType({
                                 icon: () => "💡",
                                 fields: [
                                     defineField({
+                                        name: "title",
+                                        type: "string",
+                                        title: "Título (Opcional)",
+                                    }),
+                                    defineField({
                                         name: "text",
-                                        type: "text",
+                                        type: "array",
                                         title: "Texto da Referência",
-                                        rows: 3,
+                                        description: "Pode conter links ou texto normal.",
+                                        of: [
+                                            {
+                                                type: "block",
+                                                styles: [],
+                                                lists: [],
+                                                marks: {
+                                                    decorators: [
+                                                        { title: "Negrito", value: "strong" },
+                                                        { title: "Itálico", value: "em" },
+                                                    ],
+                                                    annotations: [
+                                                        {
+                                                            name: "link",
+                                                            type: "object",
+                                                            title: "Link",
+                                                            fields: [
+                                                                defineField({
+                                                                    name: "href",
+                                                                    type: "url",
+                                                                    title: "URL",
+                                                                    validation: (rule) =>
+                                                                        rule.uri({ allowRelative: true, scheme: ["http", "https", "mailto"] }),
+                                                                }),
+                                                            ],
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ],
                                     }),
                                     defineField({
                                         name: "image",

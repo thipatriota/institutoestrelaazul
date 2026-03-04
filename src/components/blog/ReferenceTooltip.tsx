@@ -1,21 +1,50 @@
 "use client";
 
+import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import Image from "next/image";
+import Link from "next/link";
 
 import { imageUrl } from "@/lib/sanity/image";
 import type { SanityImage } from "@/types/blog";
 
+const tooltipComponents: PortableTextComponents = {
+    marks: {
+        strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
+        em: ({ children }) => <em>{children}</em>,
+        link: ({ value, children }) => {
+            const href = value?.href || "#";
+            const isExternal = href.startsWith("http");
+            if (isExternal) {
+                return (
+                    <a href={href} target="_blank" rel="noopener noreferrer" className="underline decoration-primary/50 hover:text-primary transition-colors">
+                        {children}
+                    </a>
+                );
+            }
+            return (
+                <Link href={href} className="underline decoration-primary/50 hover:text-primary transition-colors">
+                    {children}
+                </Link>
+            );
+        },
+    },
+    block: {
+        normal: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
+    }
+};
+
 interface ReferenceTooltipProps {
     children: React.ReactNode;
     value?: {
-        text?: string;
+        title?: string;
+        text?: any;
         image?: SanityImage;
     };
 }
 
 export function ReferenceTooltip({ children, value }: ReferenceTooltipProps) {
-    if (!value?.text && !value?.image) {
+    if (!value?.text && !value?.image && !value?.title) {
         return <>{children}</>;
     }
 
@@ -33,23 +62,32 @@ export function ReferenceTooltip({ children, value }: ReferenceTooltipProps) {
                 </Tooltip.Trigger>
                 <Tooltip.Portal>
                     <Tooltip.Content
-                        className="z-50 max-w-[320px] rounded-md border border-border bg-popover px-4 py-3 text-sm text-popover-foreground shadow-md animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2"
+                        className="z-50 max-w-[340px] rounded-md border border-border bg-popover px-4 py-3 text-sm text-popover-foreground shadow-xl animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2"
                         side="top"
                         sideOffset={5}
                     >
+                        {value.title && (
+                            <div className="font-bold text-base mb-2 border-b border-border/50 pb-1">
+                                {value.title}
+                            </div>
+                        )}
                         {value.image && (
-                            <div className="mb-3 relative w-full aspect-video rounded-sm overflow-hidden bg-muted">
-                                <Image
-                                    src={imageUrl(value.image, 400) || ""}
-                                    alt="Imagem de referência"
-                                    fill
-                                    className="object-cover"
+                            <div className="mb-3 w-full flex justify-center bg-muted/20 rounded-sm overflow-hidden">
+                                <img
+                                    src={imageUrl(value.image, 500) || ""}
+                                    alt={value.title || "Imagem de referência"}
+                                    className="max-h-48 w-auto max-w-full object-contain"
+                                    loading="lazy"
                                 />
                             </div>
                         )}
                         {value.text && (
-                            <div className="leading-relaxed text-sm whitespace-pre-wrap">
-                                {value.text}
+                            <div className="leading-relaxed text-sm">
+                                {typeof value.text === 'string' ? (
+                                    <div className="whitespace-pre-wrap">{value.text}</div>
+                                ) : (
+                                    <PortableText value={value.text} components={tooltipComponents} />
+                                )}
                             </div>
                         )}
                         <Tooltip.Arrow className="fill-popover border-border" />
