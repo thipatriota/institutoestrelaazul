@@ -55,7 +55,7 @@ export function ReferenceTooltip({ children, value }: ReferenceTooltipProps) {
                     <span
                         role="button"
                         tabIndex={0}
-                        className="text-primary font-semibold cursor-help align-super text-[0.75em] leading-[0] hover:underline transition-colors mx-[0.1em]"
+                        className="inline-flex items-center justify-center min-w-[1.6em] h-[1.6em] px-[0.3em] mx-[0.1em] rounded-[0.4em] bg-primary/10 text-primary font-bold cursor-help align-super text-[0.7em] hover:bg-primary/20 transition-colors"
                     >
                         {children}
                     </span>
