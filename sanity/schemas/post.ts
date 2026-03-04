@@ -88,6 +88,26 @@ export const postSchema = defineType({
                                     }),
                                 ],
                             },
+                            {
+                                name: "referenceTooltip",
+                                type: "object",
+                                title: "Referência (Tooltip)",
+                                icon: () => "💡",
+                                fields: [
+                                    defineField({
+                                        name: "text",
+                                        type: "text",
+                                        title: "Texto da Referência",
+                                        rows: 3,
+                                    }),
+                                    defineField({
+                                        name: "image",
+                                        type: "image",
+                                        title: "Imagem Opcional",
+                                        options: { hotspot: true },
+                                    }),
+                                ],
+                            },
                         ],
                     },
                 },

@@ -6,6 +6,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
+import { ReferenceTooltip } from "./ReferenceTooltip";
 import { imageUrl } from "@/lib/sanity/image";
 
 function slugify(text: string): string {
@@ -82,6 +83,9 @@ const components: PortableTextComponents = {
                     {children}
                 </Link>
             );
+        },
+        referenceTooltip: ({ children, value }) => {
+            return <ReferenceTooltip value={value as any}>{children}</ReferenceTooltip>;
         },
     },
     types: {
