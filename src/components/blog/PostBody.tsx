@@ -3,9 +3,9 @@ import {
     type PortableTextComponents,
     type PortableTextBlock,
 } from "@portabletext/react";
-import Image from "next/image";
 import Link from "next/link";
 
+import { PortableImageLightbox } from "./PortableImageLightbox";
 import { ReferenceTooltip } from "./ReferenceTooltip";
 import { imageUrl } from "@/lib/sanity/image";
 
@@ -111,25 +111,7 @@ const components: PortableTextComponents = {
             const width = match ? parseInt(match[1], 10) : 1200;
             const height = match ? parseInt(match[2], 10) : 800;
 
-            return (
-                <figure className="my-10 flex flex-col items-center">
-                    <div className="relative w-full overflow-hidden rounded-xl bg-muted/10 flex justify-center">
-                        <Image
-                            src={src}
-                            alt={value.alt || ""}
-                            width={width}
-                            height={height}
-                            sizes="(max-width: 768px) 100vw, 68ch"
-                            className="h-auto w-auto max-w-full lg:max-h-[75vh] object-contain rounded-xl"
-                        />
-                    </div>
-                    {value.caption && (
-                        <figcaption className="mt-3 text-center text-sm italic text-muted-foreground/80">
-                            {value.caption}
-                        </figcaption>
-                    )}
-                </figure>
-            );
+            return <PortableImageLightbox src={src} alt={value.alt || ""} width={width} height={height} caption={value.caption} />;
         },
     },
 };

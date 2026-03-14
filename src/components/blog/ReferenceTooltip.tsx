@@ -2,7 +2,6 @@
 
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import * as Tooltip from "@radix-ui/react-tooltip";
-import Image from "next/image";
 import Link from "next/link";
 
 import { imageUrl } from "@/lib/sanity/image";
@@ -17,13 +16,13 @@ const tooltipComponents: PortableTextComponents = {
             const isExternal = href.startsWith("http");
             if (isExternal) {
                 return (
-                    <a href={href} target="_blank" rel="noopener noreferrer" className="underline decoration-primary/50 hover:text-primary transition-colors">
+                    <a href={href} target="_blank" rel="noopener noreferrer" className="underline decoration-primary/50 hover:text-primary transition-colors break-words [overflow-wrap:anywhere]">
                         {children}
                     </a>
                 );
             }
             return (
-                <Link href={href} className="underline decoration-primary/50 hover:text-primary transition-colors">
+                <Link href={href} className="underline decoration-primary/50 hover:text-primary transition-colors break-words [overflow-wrap:anywhere]">
                     {children}
                 </Link>
             );
@@ -70,12 +69,12 @@ export function ReferenceTooltip({ children, value }: ReferenceTooltipProps) {
                 </Tooltip.Trigger>
                 <Tooltip.Portal>
                     <Tooltip.Content
-                        className="z-50 max-w-[400px] rounded-md border border-border bg-popover p-5 text-popover-foreground shadow-xl animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2"
+                        className="z-50 w-[min(90vw,400px)] max-w-[min(90vw,400px)] rounded-md border border-border bg-popover p-5 text-popover-foreground shadow-xl animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2"
                         side="top"
                         sideOffset={5}
                     >
                         {value.title && (
-                            <div className="font-bold text-base mb-2 border-b border-border/50 pb-1">
+                            <div className="font-bold text-base mb-2 border-b border-border/50 pb-1 break-words [overflow-wrap:anywhere]">
                                 {value.title}
                             </div>
                         )}
@@ -90,9 +89,9 @@ export function ReferenceTooltip({ children, value }: ReferenceTooltipProps) {
                             </div>
                         )}
                         {value.text && (
-                            <div className="text-base leading-relaxed text-foreground/90">
+                            <div className="text-base leading-relaxed text-foreground/90 break-words [overflow-wrap:anywhere]">
                                 {typeof value.text === 'string' ? (
-                                    <div className="whitespace-pre-wrap">{value.text}</div>
+                                    <div className="whitespace-pre-wrap break-words [overflow-wrap:anywhere]">{value.text}</div>
                                 ) : (
                                     <PortableText value={value.text} components={tooltipComponents} />
                                 )}
